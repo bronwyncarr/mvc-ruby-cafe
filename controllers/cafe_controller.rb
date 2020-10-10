@@ -6,8 +6,8 @@ class CafeController
 
   def run
     @cafe_view.welcome
-    @cafe_view.print_menu
     loop do
+      @cafe_view.print_menu
       input = @cafe_view.place_order
       # break out if done
       if input == 'done'
@@ -22,7 +22,7 @@ class CafeController
           @cafe_model.add_to_order(item, quantity)
         end
       else
-        @cafe_model.invalid_input
+        @cafe_view.invalid_input
       end
     end
     @cafe_view.print_order

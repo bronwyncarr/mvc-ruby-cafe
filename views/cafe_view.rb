@@ -10,8 +10,11 @@ class CafeView
 
   #print menu
   def print_menu
-    puts "On the menu is :"
+    puts
+    puts "On the menu is:"
+    puts "------------------------------"
     @cafe.menu.get_items.each {|item| puts item}
+    puts
     return nil
   end
 
@@ -24,6 +27,7 @@ class CafeView
 
   #prints a statement if unput invalid
   def invalid_input
+    puts
     puts "The item you selected is not on the menu"
     puts "Please try again or type 'done' if you are finished."
     return nil
@@ -36,9 +40,11 @@ class CafeView
   end
 
   def order_summary
+    puts
     order_items = @cafe.get_order.items
     if order_items.length > 0
-      puts "Thankyou. Here is your order:"
+      puts "Thank you. Here is your order:"
+      puts "------------------------------"
       order_items.each do |item_name, quantity|
         puts "#{item_name} #{quantity}"
       end
