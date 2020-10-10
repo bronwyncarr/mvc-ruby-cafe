@@ -6,6 +6,7 @@ class CafeController
 
   def run
     @cafe_view.welcome
+    @cafe_view.print_menu
     loop do
       input = @cafe_view.place_order
       # break out if done
