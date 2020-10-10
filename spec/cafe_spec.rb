@@ -72,4 +72,21 @@ describe Cafe do
     cafe = Cafe.new(name, menu_items)
     expect(cafe.validate_item("latte")).to eq("latte")
   end
+
+  it 'should return nil for invalid menu item' do
+    name = "My Cafe"
+    menu_items = {"latte" => 4.00, "tea" => 2.00}
+    cafe = Cafe.new(name, menu_items)
+    expect(cafe.validate_item("crumpets")).to eq(nil)
+  end
+
+  it 'should return order total' do
+    name = "My Cafe"
+    menu_items = {"latte" => 4.00, "tea" => 2.00}
+    cafe = Cafe.new(name, menu_items)
+    item = "latte"
+    quantity = 1
+    cafe.add_to_order(item, quantity)
+    expect(cafe.order_total).to be (4.00)
+  end
 end

@@ -26,4 +26,12 @@ class Cafe
   def validate_item(item_name)
     @menu.validate_item(item_name)
   end
+
+  def order_total
+    total = 0
+    @order.items.each do |item, quantity|
+      total += @menu.get_price(item) * quantity
+    end
+    return total
+  end
 end
