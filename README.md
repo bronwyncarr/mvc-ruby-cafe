@@ -1,4 +1,4 @@
-# mvc_ruby_cafe
+# :coffee: mvc_ruby_cafe :coffee:
 
 ## Purpose
 
