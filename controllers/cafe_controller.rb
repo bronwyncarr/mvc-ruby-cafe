@@ -1,0 +1,29 @@
+class CafeController
+  def initialize(cafe_model, cafe_view)
+    @cafe_model = cafe_model
+    @cafe_view = cafe_view
+  end
+
+  def run
+    @cafe_view.welcome
+    loop do
+      input = @cafe_view.place_order
+      # break out if done
+      if input == 'done'
+        break
+      end
+     
+      # check for valid item
+      item = @cafe_model.validate_item(input)
+      if item
+        quantity = @cafe_view.get_quantity
+        if quantity > 0
+          @cafe_model.add_to_order(item, quantity)
+        end
+      else
+        @cafe_model.invalid_input
+      end
+    end
+    @cafe_view.print_order
+  end
+end
